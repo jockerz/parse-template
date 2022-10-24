@@ -22,3 +22,4 @@ go.work
 
 # Custom
 templates/
+test_templates/
