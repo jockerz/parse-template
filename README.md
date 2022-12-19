@@ -2,6 +2,12 @@
 
 Namespaced `template.Template` files by directory made easier.
 
+# Usage
+
+```
+go get "github.com/jockerz/parse-template/parser"
+```
+
 
 ## Example
 
@@ -80,4 +86,10 @@ Read data from execute OUTPUT
 
 TEXT from "parts/include_me.html"
 
+```
+
+## Test
+
+```
+go test -v parser/parser_test.go
 ```
