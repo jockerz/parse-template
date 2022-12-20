@@ -16,13 +16,15 @@ type Template struct {
 	templates *template.Template
 }
 
-func prepareTestEnvirontment(ext string) (string, error) {
+func prepareTestEnvirontment(ext string, test_template ...string) (string, error) {
+	var baseDir string
 	// Prepare file and directory for test
-	baseDir := filepath.Join("..", "test_template")
-	// if _, err := os.Stat(baseDir); !os.IsNotExist(err) {
-	// 	return "", errors.New("Test directory is existed")
-	// }
-	os.Mkdir(baseDir, 0755)
+	if len(test_template) == 0 {
+		baseDir = filepath.Join("..", "test_template")
+		os.Mkdir(baseDir, 0755)
+	} else {
+		baseDir = test_template[0]
+	}
 
 	// test_template/root.html
 	filename0 := filepath.Join(baseDir, fmt.Sprintf("root.%s", ext))
@@ -111,5 +113,12 @@ func TestParseTemplate(t *testing.T) {
 	tt.templates.ExecuteTemplate(&out, "parts/part.html", nil)
 	if !strings.Contains(out.String(), "part.html") {
 		t.Errorf("part.html not included in parts/part.html: %s", out.String())
+	}
+}
+
+func TestTemplateDirNotExist(t *testing.T) {
+	_, err := prepareTestEnvirontment("html", "not_exist")
+	if err == nil {
+		t.Error("template dir is not exist. Should has an error")
 	}
 }

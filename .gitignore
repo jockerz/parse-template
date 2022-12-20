@@ -21,6 +21,7 @@
 go.work
 
 # Custom
+coverage.html
 t/
 templates/
 test_templates/
