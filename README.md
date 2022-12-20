@@ -1,3 +1,16 @@
+<p class="center">
+  <a href="https://codecov.io/gh/jockerz/parse-template" target="_blank">
+    <img src="https://img.shields.io/codecov/c/github/jockerz/parse-template?color=%2334D058" alt="Coverage">
+  </a>
+  <a href="https://goreportcard.com/report/github.com/jockerz/parse-template" target="_blank">
+    <img src="https://goreportcard.com/badge/github.com/jockerz/parse-template" alt="Coverage">
+  </a>
+   <a href="https://github.com/jockerz/parse-template/actions">
+    <img src='https://github.com/jockerz/parse-template/actions/workflows/go.yml/badge.svg' alt='Test Status' />
+  </a>
+</p>
+
+
 # Introduction
 
 Namespaced `template.Template` files by directory made easier.
@@ -91,5 +104,5 @@ TEXT from "parts/include_me.html"
 ## Test
 
 ```
-go test -v parser/parser_test.go
+go test -v ./...
 ```
